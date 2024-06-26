@@ -6,44 +6,31 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
+  //write your code here
+  console.log("Hello Rigo from the console!");
+
   let who = ["The dog", "My grandma", "The mailman", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
   let what = ["my homework", "my phone", "the car"];
-  let when = [
-    "before the class",
-    "when I was sleeping",
-    "while I was exercising",
-    "during my lunch",
-    "while I was praying"
-  ];
-    function getRandomNumber(lista) {
-let tamanoLista = lista.length
-      let numero = Math.random()
-      let indiceWho = Math.floor(Math.random() * tamanoLista);
-      let excuse = wordWho + " " + wordAction + " " + wordWhat + " " + wordWhen;
-      return excuse;
-    }
+  let when = ["before the class", "when I was sleeping", "while I was exercising", "during my lunch", "while I was praying"];
 
-  /**
-   * 1.Generar de cada lista una palabra aleatoria
-   * 2.Concatenar las palabras
-   * 3 Mostra en pantalla
-   */
-};
- const generateExcuse = () => {
-    let decimalRandom = Math.random();
-    let indiceWho = Math.floor(decimalRandom * who.length);
-    let indiceAction = Math.floor(decimalRandom * action.length);
-    let indiceWhat = Math.floor(decimalRandom * what.length);
-    let indiceWhen = Math.floor(decimalRandom * when.length);
-    let wordWho = who[indiceWho];
-    let wordAction = action[indiceAction];
-    let wordWhat = what[indiceWhat];
-    let wordWhen = when[indiceWhen];
+  function randomgenerador(listadepalabras) {
+    const palabra =
+      listadepalabras[Math.floor(Math.random() * listadepalabras.length)];
 
-    let excuse = wordWho + " " + wordAction + " " + wordWhat + " " + wordWhen;
-    return excuse;
-  };
+    return palabra;
+  }
 
-  document.querySelector("#excuse").innerHTML = generateExcuse();
+  const randomExcuse = () =>
+    `${randomgenerador(who)} ${randomgenerador(action)} ${randomgenerador(
+      what
+    )} ${randomgenerador(when)} ${randomgenerador(and)}`;
+  console.log(randomExcuse());
+
+  function mostrarExcusa() {
+    document.getElementById("generador").innerHTML = randomExcuse();
+  }
+
+  mostrarExcusa();
+  document.getElementById("boton").addEventListener("click", mostrarExcusa);
 };
