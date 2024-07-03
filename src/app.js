@@ -20,20 +20,12 @@ window.onload = function() {
     "while I was praying"
   ];
 
-  function randomgenerador(listadepalabras) {
-    const palabra =
-      listadepalabras[Math.floor(Math.random() * listadepalabras.length)];
-
-    return palabra;
-  }
-
-  const randomExcuse = () =>
-    `${randomgenerador(who)} ${randomgenerador(action)} ${randomgenerador(
+  const randomGenerator = arr => arr[Math.floor(Math.random() * arr.length)];
+  const finalWord = () =>
+    `${randomGenerator(who)} ${randomGenerator(action)} ${randomGenerator(
       what
-    )} ${randomgenerador(when)} ${randomgenerador(and)}`;
-  console.log(randomExcuse());
+    )} ${randomGenerator(when)}`;
+  console.log(finalWord());
 
-  function mostrarExcusa() {
-    document.getElementById("generador").innerHTML = randomExcuse();
-  }
+  document.body.innerHTML = `<p>${finalWord()}</p>`;
 };
